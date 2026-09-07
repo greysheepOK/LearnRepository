@@ -169,10 +169,11 @@ void rst::rasterizer::clear(rst::Buffers buff)
     }
 }
 
-rst::rasterizer::rasterizer(int w, int h) : width(w), height(h)
+rst::rasterizer::rasterizer(int w, int h) : width(2 * w), height(2 * h)
 {
-    frame_buf.resize(w * h);
-    depth_buf.resize(w * h);
+    frame_buf.resize(width * height);
+    depth_buf.resize(width * height);
+    resolved_frame_buf.resize(w * h);
 }
 
 int rst::rasterizer::get_index(int x, int y)
@@ -183,9 +184,31 @@ int rst::rasterizer::get_index(int x, int y)
 void rst::rasterizer::set_pixel(const Eigen::Vector3f& point, const Eigen::Vector3f& color)
 {
     //old index: auto ind = point.y() + point.x() * width;
-    auto ind = (height-1-point.y())*width + point.x();
+    auto ind = get_index(point.x(), point.y());
     frame_buf[ind] = color;
 
+}
+
+std::vector<Eigen::Vector3f>& rst::rasterizer::frame_buffer() {
+    int out_w = width / 2;
+    int out_h = height / 2;
+
+    for(int x = 0; x < out_w; x++){
+        for(int y = 0; y < out_h; y++){
+            Eigen::Vector3f color = Eigen::Vector3f::Zero();
+
+            color += frame_buf[get_index(2 * x, 2 * y)];
+            color += frame_buf[get_index(2 * x + 1, 2 * y)];
+            color += frame_buf[get_index(2 * x, 2 * y + 1)];
+            color += frame_buf[get_index(2 * x + 1, 2 * y + 1)];
+
+            color /= 4.0f;
+
+            resolved_frame_buf[(out_h - 1 - y) * out_w + x] = color;
+        }
+    }
+    
+    return resolved_frame_buf;
 }
 
 // clang-format on
