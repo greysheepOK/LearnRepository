@@ -1,3 +1,0 @@
-C:/Users/11715/Documents/pa0 (1)/pa0/build/CMakeFiles/Transformation.dir
-C:/Users/11715/Documents/pa0 (1)/pa0/build/CMakeFiles/edit_cache.dir
-C:/Users/11715/Documents/pa0 (1)/pa0/build/CMakeFiles/rebuild_cache.dir
