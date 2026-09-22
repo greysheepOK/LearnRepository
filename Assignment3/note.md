@@ -2,7 +2,7 @@
 
 ## 重心坐标
 
-设三角形ABC中任意一点P，可以按照面积比值计算得重心坐标$ (α，β，γ) $：
+设三角形ABC中任意一点P，可以按照面积比值计算得重心坐标 $(\alpha, \beta, \gamma)$ ：
 
 $$S=AB \times AC$$
 
@@ -24,19 +24,25 @@ $$\frac{1}{Z_p} = \alpha \frac{1}{Z_{a}} + \beta \frac{1}{Z_{b}} + \gamma \frac{
 
 设视图空间上三角形 $V_0V_1V_2$ 透视投影后成为三角形 $v_{0}v_{1}v_{2}$ ，原点$P$ 对应后者点 $p$ ，重心坐标分别为 $(A, B, C)$ 与 $(\alpha, \beta, \gamma)$，则在各自三角形上线性插值有： 
 
-$$P = AV_0 + BV_1 + CV_2 \tag{1}$$
+$$
+P = AV_0 + BV_1 + CV_2 \tag{1}
+$$
 
-$$p = \alpha v_{0} + \beta v_{1} + \gamma v_{2} \tag{2}$$
+$$
+p = \alpha v_{0} + \beta v_{1} + \gamma v_{2} \tag{2}
+$$
 
 透视除法有：
 
-$$v_{0} = \frac{V_{0}}{Z_{0}}, \quad v_{1} = \frac{V_{1}}{Z_{1}}, \quad v_{2} = \frac{V_{2}}{Z_{2}}, \quad p = \frac{P}{Z_{P}}$$
+$$
+v_{0} = \frac{V_{0}}{Z_{0}}, \quad v_{1} = \frac{V_{1}}{Z_{1}}, \quad v_{2} = \frac{V_{2}}{Z_{2}}, \quad p = \frac{P}{Z_{P}}
+$$
 
-代入$(2)$式：
+代入 $(2)$ 式：
 
 $$ \frac {P}{Z_{P}} = \alpha \frac{V_{0}}{Z_{0}} + \beta \frac{V_{1}}{Z_{1}} + \gamma \frac{V_{2}}{Z_{2}} \tag{3}$$
 
-比较$(1)(3)$式可得：
+比较 $(1)(3)$ 式可得：
 $$A = \alpha \frac{Z_{P}}{Z_{0}}, \quad B = \beta \frac{Z_{P}}{Z_{1}}, \quad C = \gamma \frac{Z_{P}}{Z_{2}}$$
 
 又因为$A + B + C = 1$，因此：
@@ -57,7 +63,7 @@ $$I = \frac {\alpha Z_{P}}{Z_{0}} I_0 + \frac{\beta Z_{P}}{Z_{1}} I_1 + \frac{\g
 
 $$\frac{I_{P}}{Z_{P}} = \alpha \frac{I_{0}}{Z_{0}} + \beta \frac{I_{1}}{Z_{1}} + \gamma \frac{I_{2}}{Z_{2}}$$
 
-故对任何三维属性$I$，$\frac {I}{Z}$可由重心坐标线性插值。
+故对任何三维属性 $I$ ， $\frac {I}{Z}$ 可由重心坐标线性插值。
 
 ## TBN矩阵
 
