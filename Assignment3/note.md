@@ -16,7 +16,7 @@ $$\gamma = \frac{PA \times PB}{S}$$
 
 $$Z_P = \alpha Z_{A} + \beta Z_{B} + \gamma Z_{C}$$
 
-但当我们经过透视投影后，由于三维上的三角形坐标要经过透视除法（$p = \frac{P}{Z_{P}}$），内部属性不可再由顶点插值得到。取而代之的是透视校正插值：
+但当我们经过透视投影后，由于三维上的三角形坐标要经过透视除法（ $p = \frac{P}{Z_{P}}$ ），内部属性不可再由顶点插值得到。取而代之的是透视校正插值：
 
 $$\frac{1}{Z_p} = \alpha \frac{1}{Z_{a}} + \beta \frac{1}{Z_{b}} + \gamma \frac{1}{Z_{c}}$$
 
@@ -25,27 +25,27 @@ $$\frac{1}{Z_p} = \alpha \frac{1}{Z_{a}} + \beta \frac{1}{Z_{b}} + \gamma \frac{
 设视图空间上三角形 $V_0V_1V_2$ 透视投影后成为三角形 $v_{0}v_{1}v_{2}$ ，原点$P$ 对应后者点 $p$ ，重心坐标分别为 $(A, B, C)$ 与 $(\alpha, \beta, \gamma)$，则在各自三角形上线性插值有： 
 
 $$
-P = AV_0 + BV_1 + CV_2 \tag{1}
+P = AV_0 + BV_1 + CV_2 \quad (1)
 $$
 
 $$
-p = \alpha v_{0} + \beta v_{1} + \gamma v_{2} \tag{2}
+p = \alpha v_{0} + \beta v_{1} + \gamma v_{2} \quad (2)
 $$
 
 透视除法有：
 
-$$
-v_{0} = \frac{V_{0}}{Z_{0}}, \quad v_{1} = \frac{V_{1}}{Z_{1}}, \quad v_{2} = \frac{V_{2}}{Z_{2}}, \quad p = \frac{P}{Z_{P}}
-$$
+$$v_{0} = \frac{V_{0}}{Z_{0}}, \quad v_{1} = \frac{V_{1}}{Z_{1}}, \quad v_{2} = \frac{V_{2}}{Z_{2}}, \quad p = \frac{P}{Z_{P}}$$
 
 代入 $(2)$ 式：
 
-$$ \frac {P}{Z_{P}} = \alpha \frac{V_{0}}{Z_{0}} + \beta \frac{V_{1}}{Z_{1}} + \gamma \frac{V_{2}}{Z_{2}} \tag{3}$$
+$$
+ \frac {P}{Z_{P}} = \alpha \frac{V_{0}}{Z_{0}} + \beta \frac{V_{1}}{Z_{1}} + \gamma \frac{V_{2}}{Z_{2}} \quad (3)
+$$
 
 比较 $(1)(3)$ 式可得：
 $$A = \alpha \frac{Z_{P}}{Z_{0}}, \quad B = \beta \frac{Z_{P}}{Z_{1}}, \quad C = \gamma \frac{Z_{P}}{Z_{2}}$$
 
-又因为$A + B + C = 1$，因此：
+又因为 $A + B + C = 1$ ，因此：
 
 $$\alpha \frac{Z_{P}}{Z_{0}} + \beta \frac{Z_{P}}{Z_{1}} + \gamma \frac{Z_{P}}{Z_{2}} = 1$$
 
@@ -59,7 +59,7 @@ $$\frac{1}{Z_{P}} = \alpha \frac{1}{Z_{0}} + \beta \frac{1}{Z_{1}} + \gamma \fra
 
 $$I = \frac {\alpha Z_{P}}{Z_{0}} I_0 + \frac{\beta Z_{P}}{Z_{1}} I_1 + \frac{\gamma Z_{P}}{Z_{2}} I_2$$
 
-两边除以$Z_{P}$得到：
+两边除以 $Z_{P}$ 得到：
 
 $$\frac{I_{P}}{Z_{P}} = \alpha \frac{I_{0}}{Z_{0}} + \beta \frac{I_{1}}{Z_{1}} + \gamma \frac{I_{2}}{Z_{2}}$$
 
